@@ -1,6 +1,16 @@
-from pyandaconnect.authentication import Authenticate
+from pyandaconnect.account import Account
+from dotenv import load_dotenv
+import os
 
 if __name__ == '__main__':
-    api = Authenticate(silent=False)
-    api.set_api_key("222sy")
-    api.authenticate_api()
+    # Env variables
+    env_cars = load_dotenv()
+    token = os.environ.get("AUTH_TOKEN")
+    account = os.environ.get("ACCOUNT_ID")
+
+    # Account api
+    account_api = Account(account_id=account)
+    account_api.set_access_token(token)
+
+    # Get account details
+    print(account_api.get_account_summary())
