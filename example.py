@@ -13,4 +13,7 @@ if __name__ == '__main__':
     account_api.set_access_token(token)
 
     # Get account details
+    print(account_api.get_account_list)
+    print(account_api.get_account_details())
     print(account_api.get_account_summary())
+    print(account_api.get_instruments())

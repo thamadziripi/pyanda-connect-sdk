@@ -19,6 +19,13 @@ class Authenticate:
         """
         self._access_token = access_token
 
+    @property
+    def headers(self):
+        """
+        Pastes users access token into the header
+        :return: dict
+        """
+        return {'Authorization': f'Bearer {self._access_token}'}
 
     def authenticate_api(self):
         """
